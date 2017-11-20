@@ -1,0 +1,7 @@
+// Custom normalize
+@import "./normalize.scss";
+
+html, body, #root, #app {
+  width: 100%;
+  height: 100%;
+}

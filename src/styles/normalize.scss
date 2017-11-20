@@ -1,0 +1,46 @@
+html {
+  font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-size: 106.25%;
+  quotes: "“" "”";
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -.022em;
+  font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-style: normal;
+}
+
+*, html, body, div, ul, li, h1, h2, h3, p, span, option, select {
+  margin: 0;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, input, textarea, select, button {
+  font-synthesis: none;
+  -moz-font-feature-settings: 'kern';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+  text-align: left;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input, textarea, button {
+  -webkit-appearance: none;
+  font-size: 1rem;
+  padding: 4px 8px;
+  outline: none;
+}
