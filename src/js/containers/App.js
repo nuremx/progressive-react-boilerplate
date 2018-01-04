@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Helmet } from 'react-helmet'
 
 // import { Nav } from '../components'
 // import { NetworkOperation } from '../lib/NetworkOperation'
@@ -15,6 +16,9 @@ class App extends Component {
   render() {
     return (
       <div id="app">
+        <Helmet>
+          <title>React Boilerplate</title>
+        </Helmet>
         {/* <Nav /> */}
         <h1>React Boilerplate App</h1>
         <p>React, Redux, HotReload, Axios, React Router, Express and more</p>
