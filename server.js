@@ -17,18 +17,13 @@ app.use(bodyParser.json())
 app.use(helmet())
 app.use(hpp())
 
-function shouldCompress(req, res) {
-  return req.headers['x-no-compression'] ? false : compression.filter(req, res)
+// If in development use webpackDevServer
+if (process.env.NODE_ENV === 'development') {
+  app.use(webpackDevServer)
 }
 
-// If in development use webpackDevServer
-process.env.NODE_ENV === 'development'
-&& app.use(webpackDevServer)
-
 // Images and static assets
-app.use('/static',
-  express.static(path.resolve('static'))
-)
+app.use('/static', express.static(path.resolve('static')))
 
 // TODO add API
 
