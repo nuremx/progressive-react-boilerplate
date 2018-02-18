@@ -4,7 +4,6 @@ const path = require('path')
 const helmet = require('helmet') // Basic headers protection
 
 const bodyParser = require('body-parser')
-const compression = require('compression') // Files compresion
 const winston = require('winston') // Logger
 const hpp = require('hpp')
 const app = express()
@@ -21,9 +20,6 @@ app.use(hpp())
 function shouldCompress(req, res) {
   return req.headers['x-no-compression'] ? false : compression.filter(req, res)
 }
-
-// Compression
-app.use(compression({filter: shouldCompress}))
 
 // If in development use webpackDevServer
 process.env.NODE_ENV === 'development'
