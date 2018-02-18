@@ -9,21 +9,21 @@ import { Helmet } from 'react-helmet'
 
 class App extends Component {
   componentWillMount() {
-    // TODO Verify auth
-    // TODO Get user
+    // Verify auth
+    // Get user
   }
 
   render() {
     return (
       <div id="app">
         <Helmet>
-          <title>React Boilerplate</title>
+          <title>Connus</title>
         </Helmet>
         {/* <Nav /> */}
-        <h1>React Boilerplate App</h1>
+        <h1>Connus</h1>
         <p>React, Redux, HotReload, Axios, React Router, Express and more</p>
         <Switch>
-          {/* TODO Add routes */}
+          {/* Add routes */}
         </Switch>
       </div>
     )

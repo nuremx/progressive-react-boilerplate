@@ -1,5 +1,5 @@
 {
-  "name": "react-boilerplate",
+  "name": "connus",
   "version": "0.1.0",
   "description": "React, Redux, Hot-Reload, SCSS, Stage 2, ESLint, Express, ES2015",
   "main": "server.js",
