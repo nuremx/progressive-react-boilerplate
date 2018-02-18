@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
@@ -17,10 +17,10 @@ class App extends Component {
     return (
       <div id="app">
         <Helmet>
-          <title>Connus</title>
+          <title>React Boilerplate</title>
         </Helmet>
         {/* <Nav /> */}
-        <h1>Connus</h1>
+        <h1>React Boilerplate</h1>
         <p>React, Redux, HotReload, Axios, React Router, Express and more</p>
         <Switch>
           {/* Add routes */}
