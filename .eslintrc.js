@@ -3,6 +3,9 @@ module.exports = {
         "browser": true,
         "es6": true
     },
+    "globals": {
+      "module": true
+    },
     "extends": [
       "eslint:recommended",
       "plugin:react/recommended"
@@ -141,6 +144,7 @@ module.exports = {
         "no-caller": "error",
         "no-catch-shadow": "error",
         "no-confusing-arrow": "off",
+        "no-console": ["error", { allow: ["warn", "error", "info"] }],
         "no-continue": "error",
         "no-div-regex": "error",
         "no-duplicate-imports": "error",
