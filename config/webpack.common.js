@@ -4,11 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
-  entry: path.resolve('src/js/index'),
-  output: {
-    path: path.resolve('dist'),
-    filename: 'bundle.min.js',
-    publicPath: '/dist/'
+  entry: {
+    bundle: path.resolve('src/js/index')
   },
   module: {
     rules: [
@@ -30,9 +27,12 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({
-      template: path.resolve('src/index.html')
+    new CleanWebpackPlugin(['dist/*.*'], {
+      root: path.join(__dirname, '../')
     }),
-  ],
+    new HtmlWebpackPlugin({
+      template: path.resolve('src/index.html'),
+      filename: 'index.html'
+    })
+  ]
 }

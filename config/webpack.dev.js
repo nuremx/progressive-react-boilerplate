@@ -7,6 +7,10 @@ const webpack = require('webpack')
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
+  output: {
+    path: path.resolve('dist'),
+    filename: 'bundle.js'
+  },
   entry: [
     'webpack-hot-middleware/client',
     path.resolve('src/js/index')
@@ -29,11 +33,6 @@ module.exports = merge(common, {
     compress: true,
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
-  output: {
-    path: path.resolve('dist'),
-    filename: 'bundle.min.js',
-    publicPath: '/dist/'
-  }
+    new webpack.HotModuleReplacementPlugin(),
+  ]
 })
