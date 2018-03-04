@@ -39,7 +39,7 @@ App.propTypes = {
   credentials: PropTypes.object
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps() {
   return {}
 }
 
