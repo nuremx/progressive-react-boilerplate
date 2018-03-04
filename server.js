@@ -8,8 +8,6 @@ const winston = require('winston') // Logger
 const hpp = require('hpp')
 const app = express()
 
-const webpackDevServer = require(path.resolve('config/webpackDevServer')) // Dev server
-
 const PORT = process.env.PORT || 8080
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -19,7 +17,7 @@ app.use(hpp())
 
 // If in development use webpackDevServer
 if (process.env.NODE_ENV === 'development') {
-  app.use(webpackDevServer)
+  app.use(require(path.resolve('config/webpackDevServer')))
 }
 
 // Images and static assets
@@ -34,7 +32,7 @@ app.use('/dist',
 
 // Send index to all other routes
 app.get('*', (req, res) =>
-  res.sendFile(path.resolve('src/index.html'))
+  res.sendFile(path.resolve('dist/index.html'))
 )
 
 // Start server

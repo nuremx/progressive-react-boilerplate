@@ -1,37 +1,38 @@
 /* eslint-env node */
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
-  entry: {
-    app: path.resolve('src/js/index')
-  },
+  entry: path.resolve('src/js/index'),
   output: {
     path: path.resolve('dist'),
-    filename: 'bundle.min.js'
+    filename: 'bundle.min.js',
+    publicPath: '/dist/'
   },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loader: 'babel-loader',
-      include: path.resolve('src'),
-      options: {
-        "presets": [
-          ["env", { "modules": false }],
-          "react",
-          "stage-2"
-        ],
-        "plugins": [
-          "react-hot-loader/babel"
-        ]
+    rules: [
+      {
+        test: /\.js$/,
+        use: {
+          loader: require.resolve('babel-loader'),
+          options: {
+            cacheDirectory: true,
+            presets: [
+              ['env', { modules: false }],
+              'react',
+              'stage-2'
+            ]
+          }
+        }
       }
-
-    },{
-      test: /(\.css$|\.scss)/,
-      use: [
-        { loader: 'style-loader' },
-        { loader: 'css-loader' },
-        { loader: 'sass-loader' }
-      ]
-    }]
-  }
+      // CSS rules are handled in dev/prod files
+    ]
+  },
+  plugins: [
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      template: path.resolve('src/index.html')
+    }),
+  ],
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
+import { hot } from 'react-hot-loader'
 
 import { App } from './containers'
 
@@ -22,4 +23,4 @@ function Routes() {
   )
 }
 
-export default Routes
+export default hot(module)(Routes)

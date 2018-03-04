@@ -4,8 +4,10 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 
-// import { Nav } from '../components'
-// import { NetworkOperation } from '../lib/NetworkOperation'
+/*
+import { Nav } from '../components'
+import { NetworkOperation } from '../lib/NetworkOperation'
+*/
 
 class App extends Component {
   componentWillMount() {
@@ -21,7 +23,7 @@ class App extends Component {
         </Helmet>
         {/* <Nav /> */}
         <h1>React Boilerplate</h1>
-        <p>React, Redux, HotReload, Axios, React Router, Express and more</p>
+        <p>React, Redux, Webpack 4, React Hot Reload, Axios, React Router, Express and more...</p>
         <Switch>
           {/* Add routes */}
         </Switch>

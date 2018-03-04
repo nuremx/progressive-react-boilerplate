@@ -5,15 +5,27 @@ const common = require('./webpack.common.js')
 const webpack = require('webpack')
 
 module.exports = merge(common, {
+  mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   entry: [
-    'react-hot-loader/patch',
     'webpack-hot-middleware/client',
     path.resolve('src/js/index')
   ],
+  module: {
+    rules: [
+      {
+        test: /(\.css$|\.scss)/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' }
+        ]
+      }
+    ]
+  },
   devServer: {
-    overlay: true,
     hot: true,
+    overlay: true,
     compress: true,
   },
   plugins: [
@@ -25,41 +37,3 @@ module.exports = merge(common, {
     publicPath: '/dist/'
   }
 })
-
-/*
-{
-  devtool: 'cheap-module-eval-source-map',
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
-    path.resolve('src/js/index')
-  ],
-  output: {
-    path: path.resolve('dist'),
-    filename: 'bundle.min.js',
-    publicPath: '/dist/'
-  },
-  devServer: {
-    overlay: true,
-    hot: true,
-    compress: true,
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
-  module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['babel-loader'],
-      include: path.resolve('src')
-    },{
-      test: /(\.css$|\.scss)/,
-      use: [
-        { loader: "style-loader"},
-        { loader: "css-loader" },
-        { loader: "sass-loader" }
-      ]
-    }]
-  }
-}
-*/
