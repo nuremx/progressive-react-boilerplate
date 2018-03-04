@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=\"development\" nodemon --config ./config/nodemon.json",
     "test": "echo \"Error: no test specified\" && exit 0",
-    "restart": "pm2 restart all",
+    "reload": "pm2 reload all",
     "start:prod": "pm2 start server.js",
     "build:prod": "webpack-cli --config ./config/webpack.prod.js"
   },
@@ -48,6 +48,8 @@
     "webpack-dev-middleware": "^3.0.0",
     "webpack-dev-server": "^3.1.0",
     "webpack-hot-middleware": "^2.21.2",
-    "webpack-merge": "^4.1.2"
+    "webpack-merge": "^4.1.2",
+    "webpack-pwa-manifest": "^3.6.1",
+    "workbox-webpack-plugin": "^2.1.3"
   }
 }
