@@ -8,29 +8,30 @@ const winston = require('winston') // Logger
 const hpp = require('hpp')
 const app = express()
 
-const PORT = process.env.PORT || 8080
+const { PORT = 8080, NODE_ENV: mode } = process.env
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(helmet())
 app.use(hpp())
 
-// If in development use webpackDevServer
-if (process.env.NODE_ENV === 'development') {
+// Images and other static assets
+app.use('/static', express.static(path.resolve('static')))
+
+/*
+  You may want to add an API here
+  app.use('/v1', routerV1)
+*/
+
+// File bundles and processed assets
+app.use('/dist', express.static('dist'))
+
+// Check if we're in development mode to use webpackDevServer middleware
+if (mode === 'development') {
   app.use(require(path.resolve('config/webpackDevServer')))
 }
 
-// Images and static assets
-app.use('/static', express.static(path.resolve('static')))
-
-// TODO add API
-
-// Bundles
-app.use('/dist',
-  express.static('dist')
-)
-
-// Send index to all other routes
+// Send index to all other routes (production)
 app.get('*', (req, res) =>
   res.sendFile(path.resolve('dist/index.html'))
 )
