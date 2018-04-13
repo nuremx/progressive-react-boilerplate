@@ -5,8 +5,8 @@ const common = require(path.resolve('config/webpack.common.js'))
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const webpack = require('webpack')
-const WorkboxPlugin = require('workbox-webpack-plugin')
-const WebpackPwaManifest = require('webpack-pwa-manifest')
+// const workboxPlugin = require('workbox-webpack-plugin')
+// const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -34,13 +34,15 @@ module.exports = merge(common, {
     new UglifyJSPlugin({
       sourceMap: true
     }),
+
+    /*
     new WebpackPwaManifest({
       name: 'React Boilerplate',
       short_name: 'boilerplate',
       description: 'React Boilerplate',
       background_color: '#ffffff',
       theme_color: '#ffffff',
-      start_url: "/",
+      start_url: "/dist/index.html",
       icons: [
         {
           src: path.resolve('src/assets/app-icon.png'),
@@ -52,13 +54,15 @@ module.exports = merge(common, {
         }
       ]
     }),
-    new WorkboxPlugin({
-      globDirectory: 'dist',
-      globPatterns: ['**/*.{html,js}'],
-      swDest: path.join('dist', 'sw.js'),
-      clientsClaim: true,
-      skipWaiting: true
-    }),
+    */
     new ExtractTextPlugin('master.min.css')
+
+    /*
+    new workboxPlugin.GenerateSW({
+      swDest: 'sw.js',
+      clientsClaim: true,
+      skipWaiting: true,
+    })
+     */
   ]
 })

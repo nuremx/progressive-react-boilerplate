@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
@@ -8,13 +8,9 @@ import { Helmet } from 'react-helmet'
 import { Nav } from '../components'
 import { NetworkOperation } from '../lib/NetworkOperation'
 */
+import { Home, NotFound } from './'
 
 class App extends Component {
-  componentWillMount() {
-    // Verify auth
-    // Get user
-  }
-
   render() {
     return (
       <div id="app">
@@ -22,10 +18,9 @@ class App extends Component {
           <title>React Boilerplate</title>
         </Helmet>
         {/* <Nav /> */}
-        <h1>React Boilerplate</h1>
-        <p>React, Redux, Webpack 4, React Hot Reload, Axios, React Router, Express and more...</p>
         <Switch>
-          {/* Add routes */}
+          <Route exact path="/" component={Home} />
+          <Route component={NotFound} />
         </Switch>
       </div>
     )

@@ -16,7 +16,7 @@ function Routes() {
       <Router>
         <Switch>
           {/* <Route exact path="/login" component={Login}/> */}
-          <Route path="/" component={App}/>
+          <Route component={App}/>
         </Switch>
       </Router>
     </Provider>

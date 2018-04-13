@@ -1,8 +1,10 @@
 /* eslint-env node */
 const path = require('path')
 const merge = require('webpack-merge')
-const common = require('./webpack.common.js')
 const webpack = require('webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+
+const common = require('./webpack.common.js')
 
 module.exports = merge(common, {
   mode: 'development',
@@ -11,10 +13,7 @@ module.exports = merge(common, {
     path: path.resolve('dist'),
     filename: 'bundle.js'
   },
-  entry: [
-    'webpack-hot-middleware/client',
-    path.resolve('src/js/index')
-  ],
+  entry: ['webpack-hot-middleware/client', path.resolve('src/js/index')],
   module: {
     rules: [
       {
@@ -30,9 +29,12 @@ module.exports = merge(common, {
   devServer: {
     hot: true,
     overlay: true,
-    compress: true,
+    compress: true
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new CleanWebpackPlugin(['dist/*.*'], {
+      root: path.join(__dirname, '../')
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 })
