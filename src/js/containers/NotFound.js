@@ -12,7 +12,13 @@ class NotFound extends Component {
     const { state, props } = this
     return (
       <div>
-        <h1>Not found</h1>
+        <h1>Not Found</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis
+          beatae ab, sed assumenda eum nobis magnam aperiam architecto quae
+          excepturi quisquam, reiciendis consequuntur, quis accusamus temporibus
+          fuga voluptates itaque. Dolore.
+        </p>
       </div>
     )
   }

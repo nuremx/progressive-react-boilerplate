@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet'
 import { Nav } from '../components'
 import { NetworkOperation } from '../lib/NetworkOperation'
 */
-import { Home, NotFound } from './'
+import { Home, AsyncNotFound } from './'
 
 class App extends Component {
   render() {
@@ -20,7 +20,7 @@ class App extends Component {
         {/* <Nav /> */}
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route component={NotFound} />
+          <Route component={AsyncNotFound} />
         </Switch>
       </div>
     )
