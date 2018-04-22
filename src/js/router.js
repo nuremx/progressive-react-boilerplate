@@ -1,14 +1,13 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
 import { hot } from 'react-hot-loader'
 
-import { App } from './containers'
+import App from './containers/App'
 
-// Redux
-import appReducer from './reducers'
-const store = createStore(appReducer)
+// Redux store
+import configStore from './reducers/configStore'
+const store = configStore()
 
 function Routes() {
   return (
@@ -16,7 +15,7 @@ function Routes() {
       <Router>
         <Switch>
           {/* <Route exact path="/login" component={Login}/> */}
-          <Route component={App}/>
+          <Route component={App} />
         </Switch>
       </Router>
     </Provider>
