@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-class NotFound extends Component {
+import { Link } from 'react-router-dom'
+
+class Home extends Component {
   constructor(props) {
     super(props)
 
@@ -12,12 +14,13 @@ class NotFound extends Component {
     const { state, props } = this
     return (
       <div>
-        <h1>Not found</h1>
+        <h1>Home 2</h1>
+        <Link to="/nowhere">Link to nowhere</Link>
       </div>
     )
   }
 }
 
-NotFound.propTypes = {}
+Home.propTypes = {}
 
-export default NotFound
+export default Home

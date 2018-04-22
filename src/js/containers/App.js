@@ -1,16 +1,15 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 
-/*
-import { Nav } from '../components'
-import { NetworkOperation } from '../lib/NetworkOperation'
-*/
-import { Home, NotFound } from './'
+// import { Nav } from '../components'
+// import { NetworkOperation } from '../lib/NetworkOperation'
+import Home from './Home'
+import LoadableNotFound from './NotFound/Loadable'
 
-class App extends Component {
+class App extends PureComponent {
   render() {
     return (
       <div id="app">
@@ -20,7 +19,7 @@ class App extends Component {
         {/* <Nav /> */}
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route component={NotFound} />
+          <Route component={LoadableNotFound} />
         </Switch>
       </div>
     )
