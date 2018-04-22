@@ -6,10 +6,7 @@ import Routes from './router'
 // Styles
 import '../styles/master.scss'
 
-ReactDOM.render(
-  <Routes />,
-  document.getElementById('root')
-)
+ReactDOM.render(<Routes />, document.getElementById('root'))
 
 // if ('serviceWorker' in navigator) {
 //     window.addEventListener('load', () => {
