@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux'
 
 function reducer(state = {}, action) {
-  return state
+  switch (action.type) {
+    default:
+      return state
+  }
 }
 
 const appReducer = combineReducers({
