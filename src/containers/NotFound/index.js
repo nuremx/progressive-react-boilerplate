@@ -1,3 +1,9 @@
+/**
+ *
+ * Not found
+ *
+ */
+
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
@@ -15,6 +21,7 @@ class NotFound extends Component {
     return (
       <div>
         <h1>Not found</h1>
+        <p>This is a dynamic imported component.</p>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat qui
           distinctio molestias aliquid asperiores quibusdam, voluptatibus omnis

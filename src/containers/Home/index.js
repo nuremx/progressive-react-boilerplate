@@ -1,3 +1,9 @@
+/**
+ *
+ * Home
+ *
+ */
+
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
@@ -14,8 +20,8 @@ class Home extends Component {
     const { state, props } = this
     return (
       <div>
-        <h1>Home 2</h1>
-        <Link to="/nowhere">Link to nowhere</Link>
+        <h1>Home</h1>
+        <Link to="/nowhere">Link to nowhere (splitted)</Link>
       </div>
     )
   }
