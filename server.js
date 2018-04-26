@@ -24,7 +24,7 @@ app.use('/static', express.static(path.resolve('static')))
 */
 
 // File bundles and processed assets
-app.use('/dist', express.static('dist'))
+app.use('/', express.static('dist'))
 
 // Check if we're in development mode to use webpackDevServer middleware
 if (mode === 'development') {
@@ -32,9 +32,7 @@ if (mode === 'development') {
 }
 
 // Send index to all other routes (production)
-app.get('*', (req, res) =>
-  res.sendFile(path.resolve('dist/index.html'))
-)
+app.get('*', (req, res) => res.sendFile(path.resolve('dist/index.html')))
 
 // Start server
 app.listen(PORT, () =>
