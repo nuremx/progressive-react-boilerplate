@@ -19,17 +19,26 @@ Minimal boilerplate to create React PWA, managing state with Redux, and using a 
 
 ## Usage
 
-Run **development server** with hot reload
+Run **development server**
 
 ```
 yarn start
 ```
 
-Create **production bundle**, splits CSS files, manifest, map files, PWA icons and Service Worker
+Create **production bundle**, splits CSS files and creates manifest, map files, PWA icons and Service Worker (saved in `/dist`)
 
 ```
 yarn run build:prod
 ```
+
+## Todo
+
+* [x] Code splitting
+* [x] Progressive web app
+* [ ] .env files support
+* [ ] CSS vendor prefixes
+* [ ] Webpack image loaders
+* [ ] Testing
 
 ## Licence
 
