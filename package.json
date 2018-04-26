@@ -1,7 +1,8 @@
 {
   "name": "react-boilerplate",
-  "version": "0.3.0",
-  "description": "React, Redux, code-splitting, hot-reload, Scss, Stage 2, ESLint, Express, ES2016",
+  "version": "0.4.0",
+  "description":
+    "React, Redux, code-splitting, hot-reload, Scss, Stage 2, ESLint, Express, ES2016",
   "main": "server.js",
   "scripts": {
     "start": "NODE_ENV=\"development\" nodemon --config ./config/nodemon.json",
