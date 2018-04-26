@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    bundle: path.resolve('src/js/index')
+    bundle: path.resolve('src/index')
   },
   module: {
     rules: [
@@ -20,7 +20,7 @@ module.exports = {
           }
         }
       }
-      // CSS rules are handled in dev/prod files
+      // CSS rules are handled separatly in .dev and .prod files
     ]
   },
   plugins: [

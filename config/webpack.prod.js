@@ -5,8 +5,8 @@ const common = require(path.resolve('config/webpack.common.js'))
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const webpack = require('webpack')
-// const workboxPlugin = require('workbox-webpack-plugin')
-// const WebpackPwaManifest = require('webpack-pwa-manifest')
+const { GenerateSW } = require('workbox-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -14,7 +14,7 @@ module.exports = merge(common, {
   output: {
     path: path.resolve('dist'),
     filename: '[name]-[chunkhash].min.js',
-    publicPath: '/dist/'
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -34,15 +34,22 @@ module.exports = merge(common, {
     new UglifyJSPlugin({
       sourceMap: true
     }),
-
-    /*
+    new ExtractTextPlugin({
+      filename: 'master.min.css',
+      allChunks: true
+    }),
+    new GenerateSW({
+      swDest: 'sw.js',
+      clientsClaim: true,
+      skipWaiting: true
+    }),
     new WebpackPwaManifest({
-      name: 'React Boilerplate',
-      short_name: 'boilerplate',
-      description: 'React Boilerplate',
+      name: 'React boilerplate',
+      short_name: 'React boilerplate',
+      description: 'React boilerplate',
       background_color: '#ffffff',
       theme_color: '#ffffff',
-      start_url: "/dist/index.html",
+      start_url: '/index.html',
       icons: [
         {
           src: path.resolve('src/assets/app-icon.png'),
@@ -53,16 +60,6 @@ module.exports = merge(common, {
           size: '1024x1024' // you can also use the specifications pattern
         }
       ]
-    }),
-    */
-    new ExtractTextPlugin('master.min.css')
-
-    /*
-    new workboxPlugin.GenerateSW({
-      swDest: 'sw.js',
-      clientsClaim: true,
-      skipWaiting: true,
     })
-     */
   ]
 })

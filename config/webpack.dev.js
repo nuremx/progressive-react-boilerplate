@@ -11,17 +11,18 @@ module.exports = merge(common, {
   devtool: 'cheap-module-eval-source-map',
   output: {
     path: path.resolve('dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    publicPath: '/'
   },
-  entry: ['webpack-hot-middleware/client', path.resolve('src/js/index')],
+  entry: ['webpack-hot-middleware/client', path.resolve('src/index')],
   module: {
     rules: [
       {
         test: /(\.css$|\.scss)/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' }
+        loaders: [
+          'style-loader?sourceMap',
+          'css-loader?sourceMap',
+          'sass-loader?sourceMap'
         ]
       }
     ]
