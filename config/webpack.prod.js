@@ -22,7 +22,11 @@ module.exports = merge(common, {
         test: /(\.css$|\.scss)/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          use: [
+            'css-loader?minimize',
+            'resolve-url-loader',
+            'sass-loader?sourceMap'
+          ]
         })
       }
     ]
@@ -35,7 +39,7 @@ module.exports = merge(common, {
       sourceMap: true
     }),
     new ExtractTextPlugin({
-      filename: 'master.min.css',
+      filename: 'master-[chunkhash].min.css',
       allChunks: true
     }),
     new GenerateSW({
@@ -44,20 +48,22 @@ module.exports = merge(common, {
       skipWaiting: true
     }),
     new WebpackPwaManifest({
-      name: 'React boilerplate',
-      short_name: 'React boilerplate',
-      description: 'React boilerplate',
+      name: 'React Boilerplate',
+      short_name: 'rb',
+      description: 'React Boilerplate',
       background_color: '#ffffff',
       theme_color: '#ffffff',
-      start_url: '/index.html',
+      start_url: '/',
       icons: [
         {
           src: path.resolve('src/assets/app-icon.png'),
-          sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+          sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+          destination: 'assets'
         },
         {
           src: path.resolve('src/assets/app-large-icon.png'),
-          size: '1024x1024' // you can also use the specifications pattern
+          size: '1024x1024', // you can also use the specifications pattern
+          destination: 'assets'
         }
       ]
     })

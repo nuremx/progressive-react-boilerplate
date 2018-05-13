@@ -37,7 +37,7 @@ yarn run build:prod
 * [x] Progressive web app
 * [ ] .env files support
 * [ ] CSS vendor prefixes
-* [ ] Webpack image loaders
+* [x] Webpack image loaders
 * [ ] Testing
 
 ## Licence

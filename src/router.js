@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { hot } from 'react-hot-loader'
 
-import App from './containers/App'
+import App from 'containers/App'
 
 // Redux store
-import configStore from './reducers/configStore'
+import configStore from 'reducers/configStore'
 const store = configStore()
 
 function Routes() {

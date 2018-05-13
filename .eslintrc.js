@@ -7,6 +7,7 @@ module.exports = {
   globals: {
     module: true
   },
+  parser: 'babel-eslint',
   extends: ['eslint:recommended', 'plugin:react/recommended'],
   parserOptions: {
     ecmaFeatures: {
@@ -97,7 +98,7 @@ module.exports = {
     'max-lines': 'error',
     'max-nested-callbacks': 'error',
     'max-params': 'off',
-    'max-statements': 'error',
+    'max-statements': 'off',
     'max-statements-per-line': 'error',
     'multiline-ternary': 'off',
     'new-cap': 'error',
@@ -113,7 +114,7 @@ module.exports = {
     'no-caller': 'error',
     'no-catch-shadow': 'error',
     'no-confusing-arrow': 'off',
-    'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
+    'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
     'no-continue': 'error',
     'no-div-regex': 'error',
     'no-duplicate-imports': 'error',
@@ -130,7 +131,7 @@ module.exports = {
     'no-implicit-globals': 'error',
     'no-implied-eval': 'error',
     'no-inline-comments': 'off',
-    'no-invalid-this': 'error',
+    'no-invalid-this': 'off',
     'no-iterator': 'error',
     'no-label-var': 'error',
     'no-labels': 'error',

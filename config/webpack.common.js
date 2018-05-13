@@ -1,10 +1,14 @@
 /* eslint-env node */
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   entry: {
     bundle: path.resolve('src/index')
+  },
+  resolve: {
+    modules: [path.resolve('src'), 'node_modules']
   },
   module: {
     rules: [
@@ -19,11 +23,49 @@ module.exports = {
             plugins: ['syntax-dynamic-import']
           }
         }
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/[hash].[ext]'
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false
+              }
+              // the webp option will enable WEBP
+              // webp: {
+              //   quality: 75
+              // }
+            }
+          }
+        ]
       }
-      // CSS rules are handled separatly in .dev and .prod files
+      // CSS rules are handled separatly in .dev|.prod files
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(['dist/*'], {
+      root: path.resolve('./')
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve('src/index.html'),
       filename: 'index.html'

@@ -10,11 +10,9 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 class NotFound extends Component {
-  constructor(props) {
-    super(props)
+  static propTypes = {}
 
-    this.state = {}
-  }
+  state = {}
 
   render() {
     const { state, props } = this
@@ -33,7 +31,5 @@ class NotFound extends Component {
     )
   }
 }
-
-NotFound.propTypes = {}
 
 export default NotFound

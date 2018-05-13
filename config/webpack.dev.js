@@ -2,7 +2,6 @@
 const path = require('path')
 const merge = require('webpack-merge')
 const webpack = require('webpack')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const common = require('./webpack.common.js')
 
@@ -22,6 +21,7 @@ module.exports = merge(common, {
         loaders: [
           'style-loader?sourceMap',
           'css-loader?sourceMap',
+          'resolve-url-loader?sourceMap',
           'sass-loader?sourceMap'
         ]
       }
@@ -32,10 +32,5 @@ module.exports = merge(common, {
     overlay: true,
     compress: true
   },
-  plugins: [
-    new CleanWebpackPlugin(['dist/*.*'], {
-      root: path.join(__dirname, '../')
-    }),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  plugins: [new webpack.HotModuleReplacementPlugin()]
 })
