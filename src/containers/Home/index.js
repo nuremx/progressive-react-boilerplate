@@ -14,7 +14,19 @@ class Home extends Component {
 
   state = {}
 
+  // getAsyncValue: Function = () => {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => resolve(new Error('THA VALUE')), 2000)
+  //   })
+  // }
+  //
+  // getSomething: Function = async () => {
+  //   const result = await this.getAsyncValue()
+  //   console.log({ result })
+  // }
+
   render() {
+    // this.getSomething()
     const { state, props } = this
     return (
       <div>

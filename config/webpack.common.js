@@ -16,7 +16,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: {
-          loader: require.resolve('babel-loader'),
+          loader: 'babel-loader',
           options: {
             cacheDirectory: true,
             presets: [['env', { modules: false }], 'react', 'stage-2'],
@@ -40,7 +40,6 @@ module.exports = {
                 progressive: true,
                 quality: 65
               },
-              // optipng.enabled: false will disable optipng
               optipng: {
                 enabled: false
               },
@@ -51,10 +50,6 @@ module.exports = {
               gifsicle: {
                 interlaced: false
               }
-              // the webp option will enable WEBP
-              // webp: {
-              //   quality: 75
-              // }
             }
           }
         ]

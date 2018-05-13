@@ -1,3 +1,9 @@
+/**
+ *
+ * App
+ *
+ */
+
 import React, { PureComponent } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import PropTypes from 'prop-types'
