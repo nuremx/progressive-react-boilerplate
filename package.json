@@ -1,15 +1,15 @@
 {
   "name": "react-boilerplate",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description":
     "React, Redux, code-splitting, hot-reload, Scss, Stage 2, ESLint, Express, ES2016",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=\"development\" nodemon --config ./config/nodemon.json",
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "reload": "pm2 reload all",
+    "start": "pm2-dev ./config/ecosystem.config.js",
     "start:prod": "pm2 start server.js",
-    "build:prod": "webpack-cli --config ./config/webpack.prod.js"
+    "build:prod": "webpack --config ./config/webpack.prod.js",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "reload": "pm2 reload all"
   },
   "author": "nure,",
   "license": "MIT",
@@ -42,8 +42,8 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.9.0",
-    "process": "^0.11.10",
-    "react-hot-loader": "^4.1.3",
+    "pm2": "^2.10.3",
+    "react-hot-loader": "^4.2.0",
     "react-loadable": "^5.4.0",
     "resolve-url-loader": "^2.3.0",
     "sass-loader": "^7.0.1",
