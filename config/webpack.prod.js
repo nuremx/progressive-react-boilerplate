@@ -1,12 +1,14 @@
 /* eslint-env node */
-const merge = require('webpack-merge')
+const webpack = require('webpack')
 const path = require('path')
-const common = require(path.resolve('config/webpack.common.js'))
+const merge = require('webpack-merge')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
-const webpack = require('webpack')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
+
+const config = require(path.resolve('config'))
+const common = require(path.resolve('config/webpack.common.js'))
 
 module.exports = merge(common, {
   mode: 'production',
@@ -36,7 +38,7 @@ module.exports = merge(common, {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new UglifyJSPlugin({
-      sourceMap: true
+      sourceMap: false
     }),
     new ExtractTextPlugin({
       filename: 'master-[chunkhash].min.css',
@@ -48,11 +50,11 @@ module.exports = merge(common, {
       skipWaiting: true
     }),
     new WebpackPwaManifest({
-      name: 'React Boilerplate',
-      short_name: 'rb',
-      description: 'React Boilerplate',
-      background_color: '#ffffff',
-      theme_color: '#ffffff',
+      name: config.project.name,
+      short_name: config.project.shortName,
+      description: config.project.description,
+      background_color: config.project.backgroundColor,
+      theme_color: config.project.themeColor,
       start_url: '/',
       icons: [
         {

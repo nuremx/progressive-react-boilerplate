@@ -1,12 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Routes from './router'
+import Routes from 'router'
 
-// Include global styles
-import './global.scss'
-
-ReactDOM.render(<Routes />, document.getElementById('root'))
+import 'global.scss'
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -20,3 +17,5 @@ if ('serviceWorker' in navigator) {
       })
   })
 }
+
+ReactDOM.render(<Routes />, document.getElementById('root'))
