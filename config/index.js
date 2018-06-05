@@ -1,7 +1,7 @@
 module.exports = {
   project: {
-    name: 'Connus',
-    shortName: 'Connus',
+    name: 'React Boilerplate',
+    shortName: 'React Boilerplate',
     themeColor: '#ffffff',
     backgroundColor: '#ffffff'
   }

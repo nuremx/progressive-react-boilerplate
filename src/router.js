@@ -5,7 +5,6 @@ import { hot } from 'react-hot-loader'
 
 import App from 'containers/App'
 
-// Redux store
 import configStore from 'reducers/configStore'
 const store = configStore()
 

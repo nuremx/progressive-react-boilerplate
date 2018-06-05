@@ -13,20 +13,26 @@ module.exports = merge(common, {
     filename: '[name].bundle.js',
     publicPath: '/'
   },
-  entry: ['webpack-hot-middleware/client', path.resolve('src/index')],
   module: {
     rules: [
       {
-        test: /(\.css$|\.scss)/,
-        loaders: [
+        test: /(\.css)/,
+        use: [
           'style-loader?sourceMap',
           'css-loader?sourceMap',
           'resolve-url-loader?sourceMap',
+          {
+            loader: 'postcss-loader?sourceMap',
+            options: {
+              config: { path: path.resolve('config/postcss.config.js') }
+            }
+          },
           'sass-loader?sourceMap'
         ]
       }
     ]
   },
+  entry: ['webpack-hot-middleware/client', path.resolve('src/index')],
   devServer: {
     hot: true,
     overlay: true,

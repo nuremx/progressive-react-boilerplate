@@ -10,7 +10,7 @@ Minimal boilerplate to create React PWA, managing state with Redux, and using a 
 * 💠 **Express** server
 * 🔥 **React Hot Reload** (with webpack-hot-middleware)
 * 🌐 **Axios** for network requests
-* 💅 **Sass** styling
+* 💅 **Sass** styling with PostCSS vendor prefixes
 * ⚗️ **Stage 2**
 * ✂️ **Code splitting**
 * 📱 **Progressive Web App** ready, service worker and manifest
@@ -36,9 +36,10 @@ yarn run build:prod
 * [x] Code splitting
 * [x] Progressive web app
 * [ ] .env files support
-* [ ] CSS vendor prefixes
+* [x] CSS vendor prefixes
 * [x] Webpack image loaders
 * [ ] Testing
+* [ ] Async/await
 
 ## Licence
 

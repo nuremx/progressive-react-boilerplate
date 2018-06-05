@@ -2,7 +2,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const merge = require('webpack-merge')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
@@ -22,14 +22,18 @@ module.exports = merge(common, {
     rules: [
       {
         test: /(\.css$|\.scss)/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader?minimize',
-            'resolve-url-loader',
-            'sass-loader?sourceMap'
-          ]
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader?minimize',
+          'resolve-url-loader?sourceMap',
+          {
+            loader: 'postcss-loader?sourceMap',
+            options: {
+              config: { path: path.resolve('config/postcss.config.js') }
+            }
+          },
+          'sass-loader?sourceMap'
+        ]
       }
     ]
   },
@@ -37,12 +41,12 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    new UglifyJSPlugin({
-      sourceMap: false
+    new MiniCssExtractPlugin({
+      filename: 'master-[hash].min.css',
+      chunkFilename: '[name]-[hash].min.css'
     }),
-    new ExtractTextPlugin({
-      filename: 'master-[chunkhash].min.css',
-      allChunks: true
+    new UglifyJSPlugin({
+      sourceMap: true
     }),
     new GenerateSW({
       swDest: 'sw.js',

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 import Routes from 'router'
 
-import 'global.scss'
+import './global.css'
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

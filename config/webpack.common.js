@@ -56,7 +56,6 @@ module.exports = {
           }
         ]
       }
-      // CSS rules are handled separatly in .dev|.prod files
     ]
   },
   plugins: [
