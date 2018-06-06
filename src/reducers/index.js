@@ -8,7 +8,7 @@ function reducer(state = {}, action) {
 }
 
 const appReducer = combineReducers({
-  reducer
+  reducer,
 })
 
 export default appReducer

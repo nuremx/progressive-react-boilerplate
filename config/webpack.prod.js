@@ -16,7 +16,7 @@ module.exports = merge(common, {
   output: {
     path: path.resolve('dist'),
     filename: '[name]-[chunkhash].min.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -29,30 +29,30 @@ module.exports = merge(common, {
           {
             loader: 'postcss-loader?sourceMap',
             options: {
-              config: { path: path.resolve('config/postcss.config.js') }
-            }
-          }
-        ]
-      }
-    ]
+              config: { path: path.resolve('config/postcss.config.js') },
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     new MiniCssExtractPlugin({
       filename: '[name]-[hash].min.css',
-      chunkFilename: '[name]-[hash].min.css'
+      chunkFilename: '[name]-[hash].min.css',
     }),
     new UglifyJSPlugin({
       sourceMap: true,
       cache: true,
-      parallel: true
+      parallel: true,
     }),
     new GenerateSW({
       swDest: 'sw.js',
       clientsClaim: true,
-      skipWaiting: true
+      skipWaiting: true,
     }),
     new WebpackPwaManifest({
       name: config.project.name,
@@ -65,14 +65,14 @@ module.exports = merge(common, {
         {
           src: path.resolve('src/assets/app-icon.png'),
           sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
-          destination: 'assets'
+          destination: 'assets',
         },
         {
           src: path.resolve('src/assets/app-large-icon.png'),
           size: '1024x1024', // you can also use the specifications pattern
-          destination: 'assets'
-        }
-      ]
-    })
-  ]
+          destination: 'assets',
+        },
+      ],
+    }),
+  ],
 })

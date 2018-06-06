@@ -3,6 +3,6 @@ module.exports = {
     name: 'React Boilerplate',
     shortName: 'React Boilerplate',
     themeColor: '#ffffff',
-    backgroundColor: '#ffffff'
-  }
+    backgroundColor: '#ffffff',
+  },
 }

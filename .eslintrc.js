@@ -2,19 +2,19 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    amd: true
+    amd: true,
   },
   globals: {
-    module: true
+    module: true,
   },
   parser: 'babel-eslint',
   extends: ['eslint:recommended', 'plugin:react/recommended'],
   parserOptions: {
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
-      jsx: true
+      jsx: true,
     },
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: ['react'],
   rules: {
@@ -30,8 +30,8 @@ module.exports = {
       'error',
       {
         after: true,
-        before: true
-      }
+        before: true,
+      },
     ],
     'block-scoped-var': 'error',
     'block-spacing': 'error',
@@ -40,7 +40,16 @@ module.exports = {
     camelcase: 'off',
     'capitalized-comments': 'off',
     'class-methods-use-this': 'off',
-    'comma-dangle': 'error',
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'never',
+        exports: 'never',
+        functions: 'ignore',
+      },
+    ],
     'comma-spacing': 'off',
     'comma-style': ['error', 'last'],
     complexity: 'error',
@@ -53,8 +62,8 @@ module.exports = {
     'dot-notation': [
       'error',
       {
-        allowKeywords: true
-      }
+        allowKeywords: true,
+      },
     ],
     'eol-last': 'error',
     eqeqeq: 'error',
@@ -66,8 +75,8 @@ module.exports = {
       'error',
       'declaration',
       {
-        allowArrowFunctions: true
-      }
+        allowArrowFunctions: true,
+      },
     ],
     'generator-star-spacing': 'error',
     'getter-return': 'error',
@@ -86,8 +95,8 @@ module.exports = {
       'error',
       {
         after: true,
-        before: true
-      }
+        before: true,
+      },
     ],
     'line-comment-position': 'off',
     'linebreak-style': ['error', 'unix'],
@@ -205,8 +214,8 @@ module.exports = {
     'object-property-newline': [
       'error',
       {
-        allowMultiplePropertiesPerLine: true
-      }
+        allowMultiplePropertiesPerLine: true,
+      },
     ],
     'object-shorthand': 'off',
     'one-var': 'off',
@@ -220,8 +229,8 @@ module.exports = {
       'error',
       {
         destructuring: 'any',
-        ignoreReadBeforeAssign: false
-      }
+        ignoreReadBeforeAssign: false,
+      },
     ],
     'prefer-destructuring': 'off',
     'prefer-numeric-literals': 'error',
@@ -259,6 +268,6 @@ module.exports = {
     'wrap-iife': 'error',
     'wrap-regex': 'error',
     'yield-star-spacing': 'error',
-    yoda: ['error', 'never']
-  }
+    yoda: ['error', 'never'],
+  },
 }

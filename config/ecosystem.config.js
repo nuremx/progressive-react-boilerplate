@@ -6,11 +6,11 @@ module.exports = {
       watch: ['config', 'router', 'server'],
       ignore_watch: ['src', 'node_modules'],
       env: {
-        NODE_ENV: 'development'
+        NODE_ENV: 'development',
       },
       env_production: {
-        NODE_ENV: 'production'
-      }
-    }
-  ]
+        NODE_ENV: 'production',
+      },
+    },
+  ],
 }

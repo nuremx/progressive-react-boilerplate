@@ -11,7 +11,7 @@ module.exports = merge(common, {
   output: {
     path: path.resolve('dist'),
     filename: '[name].bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -24,18 +24,18 @@ module.exports = merge(common, {
           {
             loader: 'postcss-loader?sourceMap',
             options: {
-              config: { path: path.resolve('config/postcss.config.js') }
-            }
-          }
-        ]
-      }
-    ]
+              config: { path: path.resolve('config/postcss.config.js') },
+            },
+          },
+        ],
+      },
+    ],
   },
   entry: ['webpack-hot-middleware/client', path.resolve('src/index')],
   devServer: {
     hot: true,
     overlay: true,
-    compress: true
+    compress: true,
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 })

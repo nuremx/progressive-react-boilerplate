@@ -20,8 +20,8 @@ router.use(
       timings: false,
       chunks: false,
       chunkModules: false,
-      modules: false
-    }
+      modules: false,
+    },
   })
 )
 
