@@ -18,6 +18,7 @@ Boilerplate to create a greatly optimized React PWA, managing state with Redux, 
 * 📱 **Progressive Web App** ready, service worker and manifest
 * 📦 **Webpack** `v4`
 * 👮 Basic security with **helmet** and **hpp**
+* 🐳 Docker support
 
 ## Usage
 
@@ -40,8 +41,10 @@ yarn run build:prod
 * [ ] .env files support
 * [x] CSS vendor prefixes
 * [x] Webpack image loaders
-* [ ] Async/await
-* [ ] Testing
+* [ ] Basic testing
+* [ ] Async/await support
+* [ ] Hot reload with code splitting
+* [ ] Full Docker support
 
 ## Licence
 
