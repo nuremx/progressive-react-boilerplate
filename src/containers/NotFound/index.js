@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
 
+import './style.pcss'
+
 class NotFound extends Component {
   static propTypes = {}
 
@@ -10,9 +12,10 @@ class NotFound extends Component {
 
   render() {
     const { state, props } = this
+
     return (
-      <div>
-        <h1>Not found</h1>
+      <div className="not-found">
+        <h1 className="not-found__header">Not found</h1>
         <p>This is a dynamic imported component.</p>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat qui

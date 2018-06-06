@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom'
 
 import Routes from 'router'
 
-import './global.css'
+import './global.pcss'
 
-if ('serviceWorker' in navigator) {
+const devMode = process.env.NODE_ENV === 'development'
+
+if (!devMode && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
       .register('/sw.js')

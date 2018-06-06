@@ -3,8 +3,8 @@ import { Switch, Route } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 
-import Home from 'containers/Home'
-import NotFound from 'containers/NotFound'
+import Home from 'containers/Home/Loadable'
+import NotFound from 'containers/NotFound/Loadable'
 
 class App extends PureComponent {
   static propTypes = {}

@@ -16,7 +16,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /(\.css)/,
+        test: /(\.css|.pcss)/,
         use: [
           'style-loader?sourceMap',
           'css-loader?sourceMap',
@@ -26,8 +26,7 @@ module.exports = merge(common, {
             options: {
               config: { path: path.resolve('config/postcss.config.js') }
             }
-          },
-          'sass-loader?sourceMap'
+          }
         ]
       }
     ]

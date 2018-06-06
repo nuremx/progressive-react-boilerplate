@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'connus',
+      name: 'react-boilerplate',
       script: './server.js',
       watch: ['config', 'router', 'server'],
       ignore_watch: ['src', 'node_modules'],

@@ -21,18 +21,17 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /(\.css$|\.scss)/,
+        test: /(\.css|.pcss)/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader?minimize',
-          'resolve-url-loader?sourceMap',
+          'resolve-url-loader',
           {
             loader: 'postcss-loader?sourceMap',
             options: {
               config: { path: path.resolve('config/postcss.config.js') }
             }
-          },
-          'sass-loader?sourceMap'
+          }
         ]
       }
     ]
@@ -42,11 +41,13 @@ module.exports = merge(common, {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new MiniCssExtractPlugin({
-      filename: 'master-[hash].min.css',
+      filename: '[name]-[hash].min.css',
       chunkFilename: '[name]-[hash].min.css'
     }),
     new UglifyJSPlugin({
-      sourceMap: true
+      sourceMap: true,
+      cache: true,
+      parallel: true
     }),
     new GenerateSW({
       swDest: 'sw.js',

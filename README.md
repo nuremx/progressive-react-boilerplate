@@ -1,20 +1,22 @@
 # React Boilerplate
 
-Minimal boilerplate to create React PWA, managing state with Redux, and using a Express server making it ready to support other services.
+[![Dependency Status][daviddm-img]][daviddm-url]
+
+Boilerplate to create a greatly optimized React PWA, managing state with Redux, and using a Express server making it ready to support other services.
 
 ## Features
 
-* ⚛️ **React**
-* 💜 **Redux**
-* 🔄 **React Router** v4
+* ⚛️ **React** `v16.4`
+* 💜 **Redux** `v4`
+* 🔄 **React Router** `v4`
 * 💠 **Express** server
 * 🔥 **React Hot Reload** (with webpack-hot-middleware)
 * 🌐 **Axios** for network requests
-* 💅 **Sass** styling with PostCSS vendor prefixes
+* ⭕️ **PostCSS** with Sass-like syntax, auto-prefixer and modern css support
 * ⚗️ **Stage 2**
-* ✂️ **Code splitting**
+* ✂️ **Code splitting** for .js and .css
 * 📱 **Progressive Web App** ready, service worker and manifest
-* 📦 **Webpack** v4
+* 📦 **Webpack** `v4`
 * 👮 Basic security with **helmet** and **hpp**
 
 ## Usage
@@ -25,7 +27,7 @@ Run **development server**
 yarn start
 ```
 
-Create **production bundle**, splits CSS files and creates manifest, map files, PWA icons and Service Worker (saved in `/dist`)
+Create **production bundle**, splits CSS files and creates manifest, map files, PWA icons and Service Worker (all saved in `/dist`)
 
 ```
 yarn run build:prod
@@ -38,9 +40,15 @@ yarn run build:prod
 * [ ] .env files support
 * [x] CSS vendor prefixes
 * [x] Webpack image loaders
-* [ ] Testing
 * [ ] Async/await
+* [ ] Testing
 
 ## Licence
 
+Copyright 2017 Nure.
+
 MIT
+
+
+[daviddm-img]: https://david-dm.org/nuremx/react-boilerplate.svg
+[daviddm-url]: https://david-dm.org/nuremx/react-boilerplate

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
 
+import './style.pcss'
+
 class Home extends Component {
   static propTypes = {}
 
@@ -10,9 +12,10 @@ class Home extends Component {
 
   render() {
     const { state, props } = this
+
     return (
-      <div>
-        <h1>Boilerplate home</h1>
+      <div className="home">
+        <h1 className="home__header">Boilerplate home</h1>
         <Link to="/nowhere">Link to nowhere (splitted)</Link>
       </div>
     )
