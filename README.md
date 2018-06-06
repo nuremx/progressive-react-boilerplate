@@ -10,7 +10,7 @@ Boilerplate to create a greatly optimized React PWA, managing state with Redux, 
 * 💜 **Redux** `v4`
 * 🔄 **React Router** `v4`
 * 💠 **Express** server
-* 🔥 **React Hot Reload** (with webpack-hot-middleware)
+* 🔥 **React Hot Reload** with webpack-hot-middleware
 * 🌐 **Axios** for network requests
 * ⭕️ **PostCSS** with Sass-like syntax, auto-prefixer and modern css support
 * ⚗️ **Stage 2**
@@ -18,7 +18,7 @@ Boilerplate to create a greatly optimized React PWA, managing state with Redux, 
 * 📱 **Progressive Web App** ready, service worker and manifest
 * 📦 **Webpack** `v4`
 * 👮 Basic security with **helmet** and **hpp**
-* 🐳 Docker support
+* 🐳 **Docker** support
 
 ## Usage
 
@@ -28,7 +28,7 @@ Run **development server**
 yarn start
 ```
 
-Create **production bundle**, splits CSS files and creates manifest, map files, PWA icons and Service Worker (all saved in `/dist`)
+Create **production bundle**, splits JS and CSS files and creates manifest, map files, PWA icons and Service Worker, all saved in `/dist`
 
 ```
 yarn run build:prod
@@ -48,7 +48,7 @@ yarn run build:prod
 
 ## Licence
 
-Copyright 2017 Nure.
+Copyright 2018 Nure.
 
 MIT
 
