@@ -1,13 +1,20 @@
-FROM node:8
+FROM node:8-alpine
 
-RUN mkdir /usr/src/app
-COPY . /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir /usr/share/app
+COPY . /usr/share/app
+WORKDIR /usr/share/app
 
-RUN npm i -g yarn
-RUN yarn global add pm2
-RUN yarn
+RUN apk --no-cache update && \
+  apk --no-cache add git nginx g++ make bash zlib-dev libpng-dev && \
+  mkdir -p /run/nginx
 
-CMD ["yarn", "start"]
+# Copy nginx config
+# COPY config/default.conf /etc/nginx/conf.d/default.conf
+# RUN nginx -g "daemon on;"
 
-EXPOSE 8080
+RUN npm i -g pm2 yarn && \
+  yarn
+
+CMD ["npm", "run", "start"]
+
+EXPOSE 80
