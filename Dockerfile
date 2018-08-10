@@ -1,20 +1,14 @@
 FROM node:8-alpine
 
+ENV NODE_ENV production
+
 RUN mkdir /usr/share/app
 COPY . /usr/share/app
 WORKDIR /usr/share/app
 
-RUN apk --no-cache update && \
-  apk --no-cache add git nginx g++ make bash zlib-dev libpng-dev && \
-  mkdir -p /run/nginx
+RUN yarn global add pm2 sharp && \
+    yarn install
 
-# Copy nginx config
-# COPY config/default.conf /etc/nginx/conf.d/default.conf
-# RUN nginx -g "daemon on;"
+CMD ["yarn", "start:docker"]
 
-RUN npm i -g pm2 yarn && \
-  yarn
-
-CMD ["npm", "run", "start"]
-
-EXPOSE 80
+EXPOSE 8080
