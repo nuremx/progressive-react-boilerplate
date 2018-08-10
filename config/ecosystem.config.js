@@ -3,8 +3,7 @@ module.exports = {
     {
       name: 'react-boilerplate',
       script: './server.js',
-      watch: ['config', 'router', 'server'],
-      ignore_watch: ['src', 'node_modules'],
+      ignore_watch: ['src', 'node_modules', 'dist'],
       env: {
         NODE_ENV: 'development',
       },
