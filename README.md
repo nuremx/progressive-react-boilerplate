@@ -24,27 +24,39 @@ Boilerplate to create a greatly optimized React PWA, managing state with Redux, 
 
 Run **development server**
 
-```
-yarn start
+```bash
+yarn start # or yarn start:nodemon
 ```
 
 Create **production bundle**, splits JS and CSS files and creates manifest, map files, PWA icons and Service Worker, all saved in `/dist`
 
-```
+```bash
 yarn run build:prod
+```
+
+Run a **Docker** container with pm2
+
+```curl
+yarn start:docker
+```
+
+Run a regular pm2 process
+
+```curl
+yarn start:prod
 ```
 
 ## Todo
 
 - [x] Code splitting
 - [x] Progressive web app
-- [ ] .env files support
+- [x] .env files support
 - [x] CSS vendor prefixes
 - [x] Webpack image loaders
 - [ ] Basic testing
-- [ ] Async/await support
-- [ ] Hot reload with code splitting
-- [ ] Full Docker support
+- [x] Async/await support
+- [x] Hot reload with code splitting
+- [x] Full Docker support
 
 ## Licence
 
