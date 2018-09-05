@@ -23,6 +23,8 @@ app.use(hpp())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+app.use('/extract', require('./server/extract'))
+
 if (!isProd && !SERVER_ONLY) app.use(require(path.resolve('config/webpackDevServer')))
 if (isProd && !SERVER_ONLY) {
   app.use(express.static(path.resolve('dist')))

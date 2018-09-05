@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { hot } from 'react-hot-loader'
 
 import App from 'containers/App'
+import Server from 'containers/Server'
 
 import configStore from 'reducers/configStore'
 const store = configStore()
@@ -13,7 +14,7 @@ function Routes() {
     <Provider store={store}>
       <Router>
         <Switch>
-          {/* <Route exact path="/login" component={Login}/> */}
+          <Route exact path="/server" component={Server} />
           <Route component={App} />
         </Switch>
       </Router>

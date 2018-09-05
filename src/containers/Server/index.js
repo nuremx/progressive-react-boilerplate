@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import axios from 'axios'
 
 import AppBar from '@material-ui/core/AppBar'
@@ -9,33 +9,22 @@ import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 
-import './styles.pcss'
+import './style.pcss'
 
-class App extends PureComponent {
+class Home extends Component {
   static propTypes = {}
 
   state = {
-    file: null,
     code: null,
-    error: null,
   }
 
-  onChange = ({ target }) =>
-    this.setState({
-      code: null,
-      file: target.files[0],
-    })
-
-  onSubmit = (event) => {
-    event.preventDefault()
-
-    const data = new FormData()
-    data.append('file', this.state.file)
-
-    axios
-      .post('http://localhost:8080/extract', data)
-      .then(({ data }) => this.setState({ code: data.code }))
-      .catch((error) => this.setState({ error }))
+  componentDidMount() {
+    setInterval(() => {
+      axios
+        .get('http://localhost:8080/extract')
+        .then(({ data }) => data.code && this.setState({ code: data.code }))
+        .catch((error) => this.setState({ error }))
+    }, 4000)
   }
 
   render() {
@@ -48,20 +37,11 @@ class App extends PureComponent {
         <AppBar position="static" color="default">
           <Toolbar>
             <Typography variant="title" color="inherit">
-              Demo for code extraction
+              Demo for code extraction (server)
             </Typography>
           </Toolbar>
         </AppBar>
         <div className="content">
-          <Input type="file" onChange={this.onChange} />
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            onClick={this.onSubmit}
-          >
-            Send
-          </Button>
           {code && (
             <div>
               <Card>
@@ -77,4 +57,4 @@ class App extends PureComponent {
   }
 }
 
-export default App
+export default Home
