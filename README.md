@@ -19,6 +19,7 @@ Boilerplate to create a greatly optimized React PWA, managing state with Redux, 
 - 📦 **Webpack** `v4`
 - 👮 Basic security with **helmet** and **hpp**
 - 🐳 **Docker** support
+- 🌸 Ready to use with GraphQL
 
 ## Usage
 
@@ -36,13 +37,13 @@ yarn run build:prod
 
 Run a **Docker** container with pm2
 
-```curl
+```bash
 yarn start:docker
 ```
 
 Run a regular pm2 process
 
-```curl
+```bash
 yarn start:prod
 ```
 

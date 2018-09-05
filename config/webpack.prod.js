@@ -1,6 +1,6 @@
 /* eslint-env node */
-const webpack = require('webpack')
 const path = require('path')
+const webpack = require('webpack')
 const merge = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')

@@ -21,8 +21,15 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
-            presets: [['env', { modules: false }], 'react', 'stage-2'],
-            plugins: ['syntax-dynamic-import'],
+            presets: [
+              ['@babel/preset-env', { modules: false }],
+              '@babel/react',
+            ],
+            plugins: [
+              '@babel/plugin-proposal-class-properties',
+              ['@babel/plugin-transform-runtime', { regenerator: true }],
+              '@babel/plugin-syntax-dynamic-import',
+            ],
           },
         },
       },

@@ -10,13 +10,13 @@ function getToken() {
 
 // Request interceptors
 axios.interceptors.request.use(
-  config => {
+  (config) => {
     // Add token
     config.headers.Authorization = `Bearer ${token || getToken()}`
     // Do something before request is sent
     return config
   },
-  error => Promise.reject(error)
+  (error) => Promise.reject(error)
 )
 
 class NetworkOperation {

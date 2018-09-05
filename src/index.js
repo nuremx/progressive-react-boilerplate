@@ -13,7 +13,7 @@ if (!devMode && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
       .register('/sw.js')
-      .then(registration => {
+      .then((registration) => {
         registration.onupdatefound = () => {
           const installingWorker = registration.installing
           installingWorker.onstatechange = () => {
@@ -27,7 +27,7 @@ if (!devMode && 'serviceWorker' in navigator) {
           }
         }
       })
-      .catch(registrationError => {
+      .catch((registrationError) => {
         console.info('SW registration failed: ', registrationError)
       })
   })
