@@ -6,20 +6,20 @@ Boilerplate to create a greatly optimized React PWA, managing state with Redux, 
 
 ## Features
 
-- ⚛️ **React** `v16.4`
-- 💜 **Redux** `v4`
+- ⚛️ **React** `v16`
 - 🔄 **React Router** `v4`
 - 💠 **Express** server
+- 〽️ **Babel `7`**
 - 🔥 **React Hot Reload** with webpack-hot-middleware
-- 🌐 **Axios** for network requests
 - ⭕️ **PostCSS** with Sass-like syntax, auto-prefixer and modern css support
-- ⚗️ **Stage 2**
 - ✂️ **Code splitting** for .js and .css
 - 📱 **Progressive Web App** ready, service worker and manifest
 - 📦 **Webpack** `v4`
 - 👮 Basic security with **helmet** and **hpp**
 - 🐳 **Docker** support
-- 🌸 Ready to use with GraphQL
+
+- 🌸 Easy to use with GraphQL
+- 💜 Easy to use with Redux
 
 ## Usage
 
