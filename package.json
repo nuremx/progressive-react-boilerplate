@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "pm2-dev ./config/ecosystem.config.js",
-    "start:nodemon": "NODE_ENV=development nodemon --ignore 'src/**' --ext \"graphql js\"",
+    "start:nodemon": "NODE_ENV=development nodemon --ignore 'src/**' -e \"graphql js\"",
     "start:prod": "pm2 start server.js",
     "build:prod": "webpack --config ./config/webpack.prod.js",
     "start:docker": "pm2-docker start ./config/ecosystem.docker.config.js",

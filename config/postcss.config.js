@@ -1,8 +1,14 @@
 /* eslint-env node */
+const precss = require('precss')
+const postcssPresetEnv = require('postcss-preset-env')
+const autoPrefixer = require('autoprefixer')
+
 module.exports = {
   plugins: [
-    require('precss'),
-    require('autoprefixer'),
-    require('postcss-preset-env'),
+    precss,
+    autoPrefixer,
+    postcssPresetEnv({
+      browsers: 'last 2 versions',
+    }),
   ],
 }
