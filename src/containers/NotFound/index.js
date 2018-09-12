@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-
 import { Link } from 'react-router-dom'
 
 import './style.pcss'
@@ -11,8 +9,6 @@ class NotFound extends Component {
   state = {}
 
   render() {
-    const { state, props } = this
-
     return (
       <div className="not-found">
         <h1 className="not-found__header">Not found</h1>

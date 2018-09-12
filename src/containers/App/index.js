@@ -1,80 +1,29 @@
-import React, { PureComponent } from 'react'
-import axios from 'axios'
-
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import Input from '@material-ui/core/Input'
-import Button from '@material-ui/core/Button'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import './styles.pcss'
 
-class App extends PureComponent {
+class App extends Component {
   static propTypes = {}
 
-  state = {
-    file: null,
-    code: null,
-    error: null,
-  }
-
-  onChange = ({ target }) =>
-    this.setState({
-      code: null,
-      file: target.files[0],
-    })
-
-  onSubmit = (event) => {
-    event.preventDefault()
-
-    const data = new FormData()
-    data.append('file', this.state.file)
-
-    axios
-      .post('http://localhost:8080/extract', data)
-      .then(({ data }) => this.setState({ code: data.code }))
-      .catch((error) => this.setState({ error }))
-  }
+  state = {}
 
   render() {
-    const {
-      state: { code },
-    } = this
-
     return (
       <div className="app">
-        <AppBar position="static" color="default">
-          <Toolbar>
-            <Typography variant="title" color="inherit">
-              Demo for code extraction
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <div className="content">
-          <Input type="file" onChange={this.onChange} />
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            onClick={this.onSubmit}
-          >
-            Send
-          </Button>
-          {code && (
-            <div>
-              <Card>
-                <CardContent>
-                  The code is: <strong>{code}</strong>
-                </CardContent>
-              </Card>
-            </div>
-          )}
-        </div>
+        <h1>Home</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus velit
+          tenetur impedit maxime aperiam, sed in eum neque quos commodi debitis
+          numquam architecto minus ullam doloribus reiciendis ex consequatur
+          praesentium.
+        </p>
+        <Link to="/not-found">Go to lazy-loaded Not Found route</Link>
       </div>
     )
   }
 }
+
+App.propTypes = {}
 
 export default App
