@@ -35,16 +35,16 @@ Create **production bundle**, splits JS and CSS files and creates manifest, map 
 yarn run build:prod
 ```
 
-Run a **Docker** container with pm2
-
-```bash
-yarn start:docker
-```
-
 Run a regular pm2 process
 
 ```bash
 yarn start:prod
+```
+
+Run in a **Docker** container with pm2
+
+```bash
+yarn start:docker
 ```
 
 ## Todo
@@ -54,16 +54,14 @@ yarn start:prod
 - [x] .env files support
 - [x] CSS vendor prefixes
 - [x] Webpack image loaders
-- [ ] Basic testing
 - [x] Async/await support
 - [x] Hot reload with code splitting
 - [x] Full Docker support
+- [ ] Basic testing
 
 ## Licence
 
-Copyright 2018 Nure.
-
-MIT
+Copyright 2018 Nure. MIT.
 
 [daviddm-img]: https://david-dm.org/nuremx/react-boilerplate.svg
 [daviddm-url]: https://david-dm.org/nuremx/react-boilerplate
