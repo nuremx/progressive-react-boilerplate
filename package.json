@@ -1,6 +1,6 @@
 {
   "name": "react-boilerplate",
-  "version": "0.8.2",
+  "version": "0.9",
   "description": "React, Redux, code-splitting, hot-reload, Scss, Stage 2, ESLint, Express, ES2016",
   "main": "server.js",
   "scripts": {
