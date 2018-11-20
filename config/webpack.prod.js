@@ -12,7 +12,7 @@ const common = require(path.resolve('config/webpack.common.js'))
 
 module.exports = merge(common, {
   mode: 'production',
-  devtool: 'source-map',
+  devtool: 'hidden-source-map',
   output: {
     path: path.resolve('dist'),
     filename: '[name]-[chunkhash].min.js',
