@@ -18,8 +18,8 @@ Boilerplate to create a greatly optimized React PWA, managing state with Redux, 
 - 👮 Basic security with **helmet** and **hpp**
 - 🐳 **Docker** support
 
-- 🌸 Easy to use with GraphQL
-- 💜 Easy to use with Redux
+- 🌸 Easy to integrate with GraphQL
+- 💜 Easy to integrate with Redux
 
 ## Usage
 
