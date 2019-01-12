@@ -3,8 +3,9 @@ const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 const config = require(path.resolve('config'))
@@ -14,22 +15,29 @@ module.exports = merge(common, {
   mode: 'production',
   devtool: 'hidden-source-map',
   output: {
-    path: path.resolve('dist'),
+    path: path.resolve('dist/app'),
     filename: '[name]-[chunkhash].min.js',
     publicPath: '/',
+  },
+  optimization: {
+    minimizer: [new TerserPlugin({ parallel: true, sourceMap: true })],
   },
   module: {
     rules: [
       {
         test: /(\.css|.pcss)/,
+        exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader?minimize',
-          'resolve-url-loader',
           {
-            loader: 'postcss-loader?sourceMap',
+            loader: 'css-loader',
+            options: { importLoaders: 1, url: true },
+          },
+          {
+            loader: 'postcss-loader',
             options: {
-              config: { path: path.resolve('config/postcss.config.js') },
+              sourceMap: true,
+              config: { path: path.resolve('config/.postcssrc.json') },
             },
           },
         ],
@@ -44,15 +52,28 @@ module.exports = merge(common, {
       filename: '[name]-[hash].min.css',
       chunkFilename: '[name]-[hash].min.css',
     }),
-    new UglifyJSPlugin({
-      sourceMap: true,
-      cache: true,
-      parallel: true,
-    }),
     new GenerateSW({
       swDest: 'sw.js',
       clientsClaim: true,
       skipWaiting: true,
+    }),
+    new FaviconsWebpackPlugin({
+      logo: path.resolve('src/assets/favicon.png'),
+      prefix: 'favicons-[hash]/',
+      inject: true,
+      title: config.project.name,
+      icons: {
+        android: false,
+        appleIcon: false,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: false,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: false,
+      },
     }),
     new WebpackPwaManifest({
       name: config.project.name,
@@ -64,12 +85,7 @@ module.exports = merge(common, {
       icons: [
         {
           src: path.resolve('src/assets/app-icon.png'),
-          sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
-          destination: 'assets',
-        },
-        {
-          src: path.resolve('src/assets/app-large-icon.png'),
-          size: '1024x1024', // you can also use the specifications pattern
+          sizes: [96, 128, 192, 256, 384, 512],
           destination: 'assets',
         },
       ],

@@ -1,15 +1,18 @@
-# React Boilerplate
+<img src="https://raw.githubusercontent.com/nuremx/react-boilerplate/master/.github/banner.png" align="center" alt="Progressive React Boilerplate banner" />
+
+# Progressive React Boilerplate
 
 [![Dependency Status][daviddm-img]][daviddm-url]
 
-Boilerplate to create a greatly optimized React PWA, managing state with Redux, and using a Express server making it ready to support other services.
+Boilerplate to create a greatly optimized React PWA, and using a Express server, customized so it can be easely integrated with other dependencies and plugins.
 
 ## Features
 
+- 💛 **JS** Optional chaining, class properties and decorators, absolute imports
 - ⚛️ **React** `v16`
 - 🔄 **React Router** `v4`
 - 💠 **Express** server
-- 〽️ **Babel `7`**
+- 〽️ **Babel `7` on server and web app**
 - 🔥 **React Hot Reload** with webpack-hot-middleware
 - ⭕️ **PostCSS** with Sass-like syntax, auto-prefixer and modern css support
 - ✂️ **Code splitting** for .js and .css
@@ -18,46 +21,60 @@ Boilerplate to create a greatly optimized React PWA, managing state with Redux, 
 - 👮 Basic security with **helmet** and **hpp**
 - 🐳 **Docker** support
 
-- 🌸 Easy to integrate with GraphQL
+- 🌸 Easy to integrate with Apollo GraphQL
 - 💜 Easy to integrate with Redux
 
 ## Usage
 
-Run **development server**
+> Targeted for node 10, you can set a minimum to 8 in `.babelrc`
+
+> You can set env variables at `config`, use `.env.development` and `.env.production`
+
+### Development
+
+Runs development server with react hot reload and nodemon
 
 ```bash
-yarn start # or yarn start:nodemon
+npm start
 ```
 
-Create **production bundle**, splits JS and CSS files and creates manifest, map files, PWA icons and Service Worker, all saved in `/dist`
+---
+
+## Production
+
+### Web app bundle
+
+Saves bundle files at `dist/app`
 
 ```bash
-yarn run build:prod
+> npm run build:app
 ```
 
-Run a regular pm2 process
+> Don't forget to set your app icons at `src/assets`
+
+### Server
+
+Compiles server at dist/server and runs simple production node process
 
 ```bash
-yarn start:prod
+> npm run build
+> npm run serve
 ```
 
-Run in a **Docker** container with pm2
+Using ** Docker **:
 
 ```bash
-yarn start:docker
+> docker build -t tag-name . # Build image, this compiles server
+> # More docker stuff
+> npm run serve:docker # In container, will run pm2 with clustering
 ```
+
+---
 
 ## Todo
 
-- [x] Code splitting
-- [x] Progressive web app
-- [x] .env files support
-- [x] CSS vendor prefixes
-- [x] Webpack image loaders
-- [x] Async/await support
-- [x] Hot reload with code splitting
-- [x] Full Docker support
 - [ ] Basic testing
+- [ ] Optional SSR rendering
 
 ## Licence
 

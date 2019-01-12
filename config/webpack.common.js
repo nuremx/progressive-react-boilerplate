@@ -7,7 +7,7 @@ const config = require(path.resolve('config'))
 
 module.exports = {
   entry: {
-    bundle: path.resolve('src/index'),
+    bundle: path.resolve('src/index.js'),
   },
   resolve: {
     modules: [path.resolve('src'), 'node_modules'],
@@ -26,13 +26,20 @@ module.exports = {
               '@babel/react',
             ],
             plugins: [
+              ['@babel/plugin-proposal-decorators', { legacy: true }],
               '@babel/plugin-proposal-class-properties',
               ['@babel/plugin-transform-runtime', { regenerator: true }],
               '@babel/plugin-syntax-dynamic-import',
               '@babel/plugin-proposal-optional-chaining',
+              'add-react-displayname',
             ],
           },
         },
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        include: path.resolve('src'),
+        loader: 'graphql-tag/loader',
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
@@ -67,7 +74,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist/*'], {
+    new CleanWebpackPlugin(['dist/app'], {
       root: path.resolve('./'),
     }),
     new HtmlWebpackPlugin({
