@@ -3,6 +3,7 @@
 # Progressive React Boilerplate
 
 [![Dependency Status][daviddm-img]][daviddm-url]
+[![DevDependency Status][daviddm-dev-img]][daviddm-dev-url]
 
 Boilerplate to create a greatly optimized React PWA, and using an Express server, customized so it can be easily integrated with other dependencies and plugins.
 
@@ -86,3 +87,5 @@ Copyright 2018 Nure. MIT.
 
 [daviddm-img]: https://david-dm.org/nuremx/react-boilerplate.svg
 [daviddm-url]: https://david-dm.org/nuremx/react-boilerplate
+[daviddm-dev-img]: https://david-dm.org/nuremx/react-boilerplate/dev-status.svg
+[daviddm-dev-url]: https://david-dm.org/nuremx/react-boilerplate?type=dev
