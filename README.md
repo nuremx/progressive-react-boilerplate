@@ -4,7 +4,9 @@
 
 [![Dependency Status][daviddm-img]][daviddm-url]
 
-Boilerplate to create a greatly optimized React PWA, and using a Express server, customized so it can be easely integrated with other dependencies and plugins.
+Boilerplate to create a greatly optimized React PWA, and using an Express server, customized so it can be easily integrated with other dependencies and plugins.
+
+---
 
 ## Features
 
@@ -24,6 +26,8 @@ Boilerplate to create a greatly optimized React PWA, and using a Express server,
 - 🌸 Easy to integrate with Apollo GraphQL
 - 💜 Easy to integrate with Redux
 
+---
+
 ## Usage
 
 > Targeted for node 10, you can set a minimum to 8 in `.babelrc`
@@ -37,8 +41,6 @@ Runs development server with react hot reload and nodemon
 ```bash
 npm start
 ```
-
----
 
 ## Production
 
@@ -71,12 +73,14 @@ Using ** Docker **:
 
 ---
 
-## Todo
+## Todos
 
 - [ ] Basic testing
 - [ ] Optional SSR rendering
 
-## Licence
+---
+
+## License
 
 Copyright 2018 Nure. MIT.
 
