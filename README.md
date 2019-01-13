@@ -5,7 +5,7 @@
 [![Dependency Status][daviddm-img]][daviddm-url]
 [![DevDependency Status][daviddm-dev-img]][daviddm-dev-url]
 
-Boilerplate to create a greatly optimized React PWA, and using an Express server, customized so it can be easily integrated with other dependencies and plugins.
+Boilerplate to create a greatly optimized React PWA, and using an Express server, custom configuration so it can be easily integrated with any library.
 
 ---
 
@@ -15,7 +15,7 @@ Boilerplate to create a greatly optimized React PWA, and using an Express server
 - ⚛️ **React** `v16`
 - 🔄 **React Router** `v4`
 - 💠 **Express** server
-- 〽️ **Babel `7` on server and web app**
+- 〽️ **Babel** `7` on server and web app
 - 🔥 **React Hot Reload** with webpack-hot-middleware
 - ⭕️ **PostCSS** with Sass-like syntax, auto-prefixer and modern css support
 - ✂️ **Code splitting** for .js and .css
@@ -40,7 +40,7 @@ Boilerplate to create a greatly optimized React PWA, and using an Express server
 Runs development server with react hot reload and nodemon
 
 ```bash
-npm start
+> npm start
 ```
 
 ## Production
@@ -57,14 +57,14 @@ Saves bundle files at `dist/app`
 
 ### Server
 
-Compiles server at dist/server and runs simple production node process
+Compiles server at `dist/server` and runs simple production node process
 
 ```bash
 > npm run build
 > npm run serve
 ```
 
-Using ** Docker **:
+With ** Docker **:
 
 ```bash
 > docker build -t tag-name . # Build image, this compiles server
@@ -78,12 +78,14 @@ Using ** Docker **:
 
 - [ ] Basic testing
 - [ ] Optional SSR rendering
+- [ ] AWS CI/CD integration
+- [ ] Example files
 
 ---
 
 ## License
 
-Copyright 2018 Nure. MIT.
+MIT. Copyright 2018 Nure.
 
 [daviddm-img]: https://david-dm.org/nuremx/react-boilerplate.svg
 [daviddm-url]: https://david-dm.org/nuremx/react-boilerplate
