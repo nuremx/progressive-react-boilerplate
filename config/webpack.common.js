@@ -6,12 +6,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const config = require(path.resolve('config'))
 
 module.exports = {
-  entry: {
-    bundle: path.resolve('src/index.js'),
-  },
-  resolve: {
-    modules: [path.resolve('src'), 'node_modules'],
-  },
+  entry: { bundle: path.resolve('src/index.js') },
+  resolve: { modules: [path.resolve('src'), 'node_modules'] },
   module: {
     rules: [
       {
@@ -24,6 +20,7 @@ module.exports = {
             presets: [
               ['@babel/preset-env', { modules: false }],
               '@babel/react',
+              '@babel/flow',
             ],
             plugins: [
               ['@babel/plugin-proposal-decorators', { legacy: true }],
@@ -31,6 +28,7 @@ module.exports = {
               ['@babel/plugin-transform-runtime', { regenerator: true }],
               '@babel/plugin-syntax-dynamic-import',
               '@babel/plugin-proposal-optional-chaining',
+              '@babel/plugin-proposal-do-expressions',
               'add-react-displayname',
             ],
           },
@@ -74,9 +72,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist/app'], {
-      root: path.resolve('./'),
-    }),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve('src/index.html'),
       filename: 'index.html',

@@ -16,7 +16,7 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["react", "import"],
+  "plugins": ["react", "react-hooks", "import"],
   "rules": {
     "react/sort-comp": [2],
     "react/jsx-uses-vars": [2],
@@ -24,6 +24,7 @@
     "react/forbid-dom-props": [2],
     "react/no-danger": [1],
     "react/no-deprecated": [2],
+    "react/display-name": "off",
     "react/no-did-mount-set-state": [1],
     "react/no-did-mount-set-state": [2],
     "react/prefer-stateless-function": [1],
@@ -31,6 +32,7 @@
     "react/sort-comp": [1],
     "react/sort-prop-types": [1],
     "react/jsx-key": [2],
+    "react-hooks/rules-of-hooks": "error",
     "import/order": "error",
     "accessor-pairs": "error",
     "array-bracket-newline": "off",

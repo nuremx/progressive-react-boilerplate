@@ -31,7 +31,7 @@ module.exports = merge(common, {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { importLoaders: 1, url: true },
+            options: { sourceMap: true, importLoaders: 1, url: true },
           },
           {
             loader: 'postcss-loader',
@@ -64,8 +64,8 @@ module.exports = merge(common, {
       title: config.project.name,
       icons: {
         android: false,
-        appleIcon: false,
-        appleStartup: false,
+        appleIcon: true,
+        appleStartup: true,
         coast: false,
         favicons: true,
         firefox: false,

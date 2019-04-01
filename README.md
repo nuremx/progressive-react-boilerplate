@@ -12,6 +12,7 @@ Boilerplate to create a greatly optimized React PWA, and using an Express server
 ## Features
 
 - 💛 **JS** Optional chaining, class properties and decorators, absolute imports
+- ⭐️ **Flow**
 - ⚛️ **React** `v16`
 - 🔄 **React Router** `v4`
 - 💠 **Express** server
@@ -24,14 +25,14 @@ Boilerplate to create a greatly optimized React PWA, and using an Express server
 - 👮 Basic security with **helmet** and **hpp**
 - 🐳 **Docker** support
 
-- 🌸 Easy to integrate with Apollo GraphQL
-- 💜 Easy to integrate with Redux
+* 🌸 Easy to integrate with Apollo GraphQL
+* 💜 Easy to integrate with Redux
 
 ---
 
 ## Usage
 
-> Targeted for node 10, you can set a minimum to 8 in `.babelrc`
+> Targeted for node 8
 
 > You can set env variables at `config`, use `.env.development` and `.env.production`
 
